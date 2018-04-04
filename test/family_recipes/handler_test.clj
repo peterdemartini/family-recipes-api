@@ -4,13 +4,8 @@
             [family-recipes.handler :refer :all]))
 
 (deftest test-app
-  (testing "main route"
-    (let [response (app (mock/request :get "/"))]
-      (is (= (:status response) 200))
-      (is (= (:body response) "Family Recipes"))))
-
-  (testing "list recipes route"
-    (let [response (app (mock/request :get "/family/1/recipes"))]
+  (testing "get recipe route"
+    (let [response (app (mock/request :get "/recipe/1"))]
       (is (= (:status response) 200))
       (is (= (:body response) "{\"foo\":\"bar\"}"))))
 
